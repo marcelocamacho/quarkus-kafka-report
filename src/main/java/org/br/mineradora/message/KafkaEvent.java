@@ -17,20 +17,24 @@ public class KafkaEvent {
     
     @Inject
     OpportunityService opportunityService;
+    
+    @Incoming("quotation")
+    @Blocking
+    public void receiveQuotation(QuotationDTO quotation){
+        LOG.info("-- Recebendo Nova Cotação do Tópico kafka --");
+        LOG.info(quotation.toString());
+
+        opportunityService.saveQuotation(quotation);
+    }
 
     @Incoming("proposal")
     @Transactional
     public void receiveProposal(ProposalDTO proposal){
         LOG.info("-- Recebendo Nova Proposta do Tópico kafka --");
+        LOG.info(proposal.toString());
         opportunityService.buildOpportunity(proposal);
     }
 
-    @Incoming("quotation")
-    @Blocking
-    public void receiveQuotation(QuotationDTO quotation){
-        LOG.info("-- Recebendo Nova Cotação do Tópico kafka --");
-        opportunityService.saveQuotation(quotation);
-    }
 
 
 
