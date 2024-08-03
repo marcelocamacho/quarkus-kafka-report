@@ -12,26 +12,18 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "opportunity")
+@Table(name="quotation")
 @Data
 @NoArgsConstructor
-public class OpportunityEntity {
+public class QuotationEntity {
     
     @Id
     @GeneratedValue
     private Long id;
-
-    private Date date;
     
-    @Column(name = "proposal_id")
-    private Long proposalId;
+    private Date date;
 
-    private String customer;
-
-    @Column(name = "price_tonne")
-    private BigDecimal priceTonne;
-
-    @Column(name = "last_currency_quotation")
-    private BigDecimal lastDollarQuotation;
+    @Column(name="currency_price")
+    private BigDecimal currencyPrice;
 
 }
