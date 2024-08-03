@@ -12,8 +12,8 @@ import org.apache.commons.csv.CSVPrinter;
 import org.br.mineradora.dto.OpportunityDTO;
 
 public class CSVHelper {
-    public static ByteArrayInputStream OpportunitiesToCSV(List<OpportunityDTO> opportunities){
 
+    public static ByteArrayInputStream OpportunitiesToCSV(List<OpportunityDTO> opportunities){
 
         @SuppressWarnings("deprecation")
         final CSVFormat format = CSVFormat.DEFAULT
@@ -31,11 +31,9 @@ public class CSVHelper {
                 }
                 csvPrinter.flush();
                 return new ByteArrayInputStream(out.toByteArray());
-                
+
             } catch( IOException e){
                 throw new RuntimeException("Fail to import data to CSV file: "+ e.getMessage());
             }
-        
-
     }
 }
