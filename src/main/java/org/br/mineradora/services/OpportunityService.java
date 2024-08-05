@@ -17,5 +17,6 @@ public interface OpportunityService {
 
     List<OpportunityDTO> generateOpportunityData();
 
-    ByteArrayInputStream generateCSVOpportunityReport();
+    // MÉTODO PASSADO PARA O GATEWAY
+   // ByteArrayInputStream generateCSVOpportunityReport();
 }
