@@ -28,8 +28,7 @@ public class OpportunityController {
     JsonWebToken jsonWebToken;
 
     @GET
-    @Path("/report")
-    @Produces(MediaType.APPLICATION_OCTET_STREAM)
+    @Path("/data")
     @RolesAllowed({"user","manager"})
     public List<OpportunityDTO> generateReport(){
 
